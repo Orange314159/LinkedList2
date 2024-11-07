@@ -85,7 +85,7 @@ int main() {
 
       if(d < 100.0f){
       std::ofstream outfile("output.txt", std::ios::app);
-      outfile << airportList.get(c).code   << " long: " << airportList.get(c).longitude   << " lat: " << airportList.get(c).latitude << std::enl;
+      outfile << airportList.get(c).code   << " long: " << airportList.get(c).longitude   << " lat: " << airportList.get(c).latitude << std::endl;
       outfile.close();
   }
     }
@@ -176,14 +176,15 @@ void mergeSort(Node*& head) {
       return; // Base case
   }
 
-  Node* slow = head, *fast = head->next;
+  Node* prev = head;
+  Node* fast = head->next;
   while (fast != nullptr && fast->next != nullptr) {
-      slow = slow->next;
+      prev = prev->next;
       fast = fast->next->next;
   }
 
-  Node* right = slow->next;
-  slow->next = nullptr;
+  Node* right = prev->next;
+  prev->next = nullptr;
 
 
   // Recursively sort the two halves
